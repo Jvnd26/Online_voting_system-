@@ -1,0 +1,32 @@
+package com.example.voting.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import com.example.voting.model.Candidate;
+import com.example.voting.service.CandidateService;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin
+public class CandidateController {
+
+    @Autowired
+    private CandidateService service;
+
+    @PostMapping("/candidates")
+    public Candidate addCandidate(@RequestBody Candidate candidate) {
+        return service.addCandidate(candidate);
+    }
+
+    @GetMapping("/candidates")
+    public List<Candidate> getAllCandidates() {
+        return service.getAllCandidates();
+    }
+
+    @PostMapping("/votes")
+    public String vote(@RequestParam Long candidateId) {
+        service.vote(candidateId);
+        return "Vote cast successfully!";
+    }
+}
