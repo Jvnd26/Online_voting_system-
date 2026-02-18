@@ -1,0 +1,10 @@
+online-voting-system
+ ├── src/main/java/com/example/voting
+ │      ├── VotingApplication.java
+ │      ├── controller/CandidateController.java
+ │      ├── model/Candidate.java
+ │      ├── repository/CandidateRepository.java
+ │      ├── service/CandidateService.java
+ ├── src/main/resources
+ │      └── application.properties
+ └── pom.xml
